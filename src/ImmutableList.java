@@ -8,18 +8,18 @@ public class ImmutableList implements IImmutableList {
 
 
 	// ---------These are the ones I was playing with -------------
-	private String tripName;
-	String locations;
+	//private String tripName;
+	//String locations;
 	String myinternalstring = "";
 	// ------------------------------------------------------------
 
 
-	
+	// method to accept type integer
 	public ImmutableList(int[] incomingarraylist) {
 		this.myinternallist=incomingarraylist;
 	}
 
-
+	//method to accept type IImmutableList
 	public ImmutableList(IImmutableList incominglist) {
 		// loop thru new list and get each element and add it to the internal array.
 		//<String>(mylist.toString());
@@ -27,25 +27,22 @@ public class ImmutableList implements IImmutableList {
 		// this.myinternallist        int[]a = {1,2,3,4};
 		// mylist  being passed in    int[]b = {4,16,1,2,3,22};
 		//how to recreate myinternallist with a new size each time.????
-		
+
 		//System.out.println("incoming size inside Immutablelist: " + incominglist.size()); // + this.size());
 		//System.out.println("this size inside Immutablelist: " + this.myinternalstring.length() ); // + this.size());
 		//System.out.println("this size inside Immutablelist: " + this.size()); // + this.size());
 
 		int incominglength = incominglist.size();
-        int[] myinternallist = new int[incominglength]; 
-        
-              
+		int[] myinternallist = new int[incominglength]; 
+
 		//for (int i = 0; i < incominglength; i++) {
 		//	System.out.print("===" + incominglist.get(i) + " ");
 		//}
-
 
 		//System.out.println("size inside Immutablelist: " + this.myinternallist.length); // + this.size());
 		//System.out.println("size of incominglist in imutablelist: " + incominglist.size()); // + this.size());
 		//System.out.println("size of incominglist from number: " + incominglength); // + this.size());
 
-		
 		//System.out.print("before"  + this.myinternalstring);
 
 		//create new internallist of incominglength and copy element by element from incoming mylist
@@ -54,7 +51,7 @@ public class ImmutableList implements IImmutableList {
 			this.myinternallist[i] = incominglist.get(i);
 		}
 		//System.out.print("after" + this.myinternalstring);
-		
+
 
 	}
 
@@ -78,42 +75,36 @@ public class ImmutableList implements IImmutableList {
 	 * @return An immutable list containing elements from both list.
 	 */
 	public IImmutableList concat(IImmutableList incominglist) {
-		
-		System.out.println("in concat");
 
-		
+
 		int incominglistsize=incominglist.size();
 		int thislistsize=this.size();
-		
 
-		System.out.println("myinternallist size inside concat: " + thislistsize); 
-		System.out.println("size of incominglist in concat: " + incominglistsize); 
-		System.out.println("this" + this.myinternalstring); 
-
+		//System.out.println("myinternallist size inside concat: " + thislistsize); 
+		//System.out.println("size of incominglist in concat: " + incominglistsize); 
 
 		// define array of new combined size
 		int combinedlength = this.size() + incominglist.size();
-        int[] myinternallist = new int[combinedlength]; 
-        	
-        // replicate elements from existing list into new array
+		int[] myinternallist = new int[combinedlength]; 
+
+		//System.out.println("size of combined lists in concat: " + combinedlength); 
+
+		// replicate elements from existing list into new array
 		for(int i = 0; i < thislistsize; i++) {
 			myinternallist[i] = this.get(i);
 		}
-		
-		// then append new elements from incominglist
-		for(int i = 0; i < incominglistsize; i++) {
-			myinternallist[i+thislistsize] = incominglist.get(i+thislistsize);
-		}
-		
-		System.out.println(incominglist); 
-		System.out.println("this" + this.myinternalstring); 
-		System.out.println("internal" + myinternalstring); 
-		System.out.println("incoming" + incominglist); 
 
-		
-		return(?????????);
+		// then append new elements from incominglist, start writing at thislistsize
+		for(int i = 0; i < incominglistsize; i++) {
+			myinternallist[i+thislistsize] = incominglist.get(i);
+		}
+
+		IImmutableList newlist = new ImmutableList(myinternallist);
+
+		return(newlist);
 	}
 
+	
 	/**
 	 * Returns the number of elements in the list.
 	 * 
@@ -135,7 +126,7 @@ public class ImmutableList implements IImmutableList {
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("caught exception :" + e);			
 		}
-		*/
+		 */
 
 		//System.out.println("in size : " + this.myinternallist.length);
 
@@ -145,6 +136,8 @@ public class ImmutableList implements IImmutableList {
 		//}
 		return (this.myinternallist.length);
 	}
+	
+	
 
 	/**
 	 * Return a string presentation of the list. The content is enclosed in [ ],
@@ -154,16 +147,26 @@ public class ImmutableList implements IImmutableList {
 	 */
 	@Override
 	public String toString() {
-		
-		// TODO - have to fix this as it puts a comma after the last entry...........
-		System.out.print("[");
-		for(int i = 0; i < this.myinternallist.length; i++) {
-			System.out.print(this.get(i) + ", ");
-		} 
-		System.out.print("]");
 
-		return (this.myinternalstring);
+		String newstring="[";
+		
+		for(int i = 0; i < this.myinternallist.length; i++) {
+			newstring = newstring + this.get(i);
+			if (i < this.myinternallist.length-1) {
+				newstring = newstring + ", ";
+			}		
+		} 
+		newstring= newstring + "]";
+		return(newstring);
 	}
+
+
+
+	
+	
+	
+	
+	
 
 	/* 
 	// method  I just created to start playing with concatting two strings.	
