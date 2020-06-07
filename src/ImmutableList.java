@@ -6,17 +6,15 @@ public class ImmutableList implements IImmutableList {
 
 	private String tripName;
 	ArrayList<String> locations;
-	// ArrayList<Int> stuff;
 
 	String myinternalstring = "";
 
 	
-	
 	// method  I just created to start playing with concatting two strings.	
-	public String keeptrack(String mystr) {
+	public String concatstring(String mystr) {
 		// This is the string I want to keep adding things to.
 		this.myinternalstring = this.myinternalstring + mystr;
-		System.out.println("in keeptrack: " + this.myinternalstring);
+		System.out.println("in concatstring: " + this.myinternalstring);
 		return (this.myinternalstring);
 	}
 
@@ -24,10 +22,7 @@ public class ImmutableList implements IImmutableList {
 		return (this.myinternalstring);
 	}
 
-	
-	
-	
-	
+		
 	// Your methods from Trip
 	public void Trip(String tripName) {
 		this.tripName = tripName;
@@ -64,7 +59,7 @@ public class ImmutableList implements IImmutableList {
 	public void sleep(int[] howlong) {
 		// just picking the first element of array for fun to make sure I can pass in
 		// array
-		System.out.println("taking a long snooze: " + howlong[0]);
+		System.out.println("taking a snooze: " + howlong[0]);
 	}
 
 	
@@ -87,13 +82,16 @@ public class ImmutableList implements IImmutableList {
 	 * @param list The other list
 	 * @return An immutable list containing elements from both list.
 	 */
-	// public IImmutableList concat(IImmutableList list) {
-	// Took the code from the keeptrack method above, baby steps to concat string
+	public IImmutableList concat(IImmutableList list) {
+		// Took the code from the keeptrack method above, baby steps to concat string
 
-	// this.myinternalstring = this.myinternalstring + mystr;
-	// System.out.println("in concat" + this.myinternalstring);
-	// return(this.myinternalstring);
-	// }
+		//this.myinternalstring = this.myinternalstring + list;
+		System.out.println("in concat");
+		
+		return(this);
+		//return(this.myinternalstring);
+
+	}
 
 	/**
 	 * Returns the number of elements in the list.
@@ -112,7 +110,7 @@ public class ImmutableList implements IImmutableList {
 	 */
 	@Override
 	public String toString() {
-		// for (ArrayList<Int> t : this.stuff) {
+		// for (ArrayList<Int> t : this.stuff ) {
 		// // Build string to return
 		// return()
 		// System.out.println(t.getTripName() + " - " + t.getLocations().size());

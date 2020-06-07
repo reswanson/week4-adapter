@@ -5,29 +5,30 @@ import java.util.ArrayList;
 public class Main {
 
 	public static void main(String[] args){
-		//IImmutableList list1 = new ImmutableList(new int[]{1,2,3});
-
-		//IImmutableList list1 = new ImmutableList();
-
 		
+			
 		// working with the animal classes
 		IImmutableList list1 = new ImmutableList();
 		list1.animalSound("oink");
 		list1.eat("pizza");
 		list1.sleep(new int[]{1,2,3});
 		
+		IImmutableList list2 = new ImmutableList();
+
+			
+		list1.concat(list2);
 		
-		///// STUCK HERE               how is it of type IImmutableList?
-		//list1.concat(list1.???);
-
-
+		
 		// Trying to add a concat feature of just a string	
-		list1.keeptrack("123");
-		list1.keeptrack("456");
-		list1.keeptrack("789");
+		list1.concatstring("123");
+		list1.concatstring("456");
+		list1.concatstring("789");
+		
+		//list2.concatstring(list1);
 
 
-		System.out.println(" in main, hereis my concatted list" + list1.printit());
+		System.out.println(" from main, here is list1: " + list1.printit());
+
 		
 
 		//create the trip list
@@ -46,7 +47,7 @@ public class Main {
 		
 		// From this weeks assignment.
 		
-		//IImmutableList list1 = new ImmutableList(new int[]{1,2,3});
+		//IImmutableList listone = new ImmutableList(new int[]{1,2,3});
 		//IImmutableList list2 = new ImmutableList(list1);
 		//IImmutableList list3 = list1.concat(list2);
 		//IImmutableList list4 = new ImmutableList(new int[]{4,5,6,7});
