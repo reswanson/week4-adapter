@@ -5,11 +5,26 @@ public class ImmutableList implements IImmutableList {
 	// ----------------------
 
 	private String tripName;
-	ArrayList<String> locations;
-
+	String locations;
+	
+	int[] myintlist;
+	
+    ArrayList<String> mylist;
 	String myinternalstring = "";
+		
+	
+	
+    public ImmutableList(int[] incomingarraylist) {
+    	myintlist = new ArrayList<String>(incomingarraylist);
+    }
+    
+    public ImmutableList(IImmutableList mylist) {
+    	mylist = new ArrayList<String>(mylist.toString());
+    }
+
 
 	
+    
 	// method  I just created to start playing with concatting two strings.	
 	public String concatstring(String mystr) {
 		// This is the string I want to keep adding things to.
@@ -21,33 +36,29 @@ public class ImmutableList implements IImmutableList {
 	public String printit() {
 		return (this.myinternalstring);
 	}
+	
 
 		
-	// Your methods from Trip
-	public void Trip(String tripName) {
-		this.tripName = tripName;
-		locations = new ArrayList<String>();
-	}
-
-	public void addLocation(String location) {
-		System.out.println("Adding location" + location);
-		locations.add(location);
-	}
-
-	// Getters and Setters
-	public String getTripName() {
-		return tripName;
-	}
-
-	public void setTripName(String tripName) {
-		this.tripName = tripName;
-	}
-
+	/*
+	 * // Your methods from Trip 
+	 * public void Trip(String tripName) { 
+	 * this.tripName = tripName; 
+	 * locations = new ArrayList<String>(); 
+	 * }
+	 * 
+	 * public void addLocation(String location) {
+	 * System.out.println("Adding location" + location); 
+	 * locations.add(location); }
+	 * 
+	 * // Getters and Setters 
+	 * public String getTripName() { return tripName; }
+	 * public void setTripName(String tripName) { this.tripName = tripName; }
+	 */
 	
 	
 	// Samples from W3schools for an interface.
 	// ----------------------
-
+    /* 
 	public void animalSound(String says) {
 		System.out.println("The pig says in ImmutableList: " + says);
 	}
@@ -59,8 +70,9 @@ public class ImmutableList implements IImmutableList {
 	public void sleep(int[] howlong) {
 		// just picking the first element of array for fun to make sure I can pass in
 		// array
-		System.out.println("taking a snooze: " + howlong[0]);
+	System.out.println("taking a snooze: " + howlong[0]);
 	}
+	*/
 
 	
 	
@@ -83,8 +95,6 @@ public class ImmutableList implements IImmutableList {
 	 * @return An immutable list containing elements from both list.
 	 */
 	public IImmutableList concat(IImmutableList list) {
-		// Took the code from the keeptrack method above, baby steps to concat string
-
 		//this.myinternalstring = this.myinternalstring + list;
 		System.out.println("in concat");
 		
