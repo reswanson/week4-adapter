@@ -27,8 +27,6 @@ interface IImmutableList {
 	public int get(int index);
 
 
-
-
 	/**
 	 * Returns the concatenation of the current list and other list.
 	 * @param list The other list
