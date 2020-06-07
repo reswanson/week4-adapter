@@ -30,6 +30,7 @@ public class ImmutableList implements IImmutableList {
 		//how to recreate myinternallist with a new size each time.????
 		
 		System.out.println("mylist size inside Immutablelist: " + mylist.size()); // + this.size());
+		System.out.println("this size inside Immutablelist: " + this.myinternalstring.length() ); // + this.size());
 		System.out.println("this size inside Immutablelist: " + this.size()); // + this.size());
 
 		int newsize = this.size() + mylist.size();

@@ -9,7 +9,7 @@ public class Main {
 		
 		// From this weeks assignment.
 		
-		IImmutableList list1 = new ImmutableList(new int[]{1,2,3});
+		IImmutableList list1 = new ImmutableList(new int[]{1,2,3,4,5,6});
 		
 		System.out.println(list1);	
 		
