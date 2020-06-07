@@ -6,58 +6,26 @@ public class ImmutableList implements IImmutableList {
 	// internal struct
 	int[] myinternallist;
 
-
-	// ---------These are the ones I was playing with -------------
-	//private String tripName;
-	//String locations;
-	String myinternalstring = "";
-	// ------------------------------------------------------------
-
-
+	
 	// method to accept type integer
 	public ImmutableList(int[] incomingarraylist) {
 		this.myinternallist=incomingarraylist;
 	}
 
+
 	//method to accept type IImmutableList
 	public ImmutableList(IImmutableList incominglist) {
-		// loop thru new list and get each element and add it to the internal array.
-		//<String>(mylist.toString());
-
-		// this.myinternallist        int[]a = {1,2,3,4};
-		// mylist  being passed in    int[]b = {4,16,1,2,3,22};
-		//how to recreate myinternallist with a new size each time.????
-
-		//System.out.println("incoming size inside Immutablelist: " + incominglist.size()); // + this.size());
-		//System.out.println("this size inside Immutablelist: " + this.myinternalstring.length() ); // + this.size());
-		//System.out.println("this size inside Immutablelist: " + this.size()); // + this.size());
 
 		int incominglength = incominglist.size();
-		int[] myinternallist = new int[incominglength]; 
 
-		//for (int i = 0; i < incominglength; i++) {
-		//	System.out.print("===" + incominglist.get(i) + " ");
-		//}
-
-		//System.out.println("size inside Immutablelist: " + this.myinternallist.length); // + this.size());
-		//System.out.println("size of incominglist in imutablelist: " + incominglist.size()); // + this.size());
-		//System.out.println("size of incominglist from number: " + incominglength); // + this.size());
-
-		//System.out.print("before"  + this.myinternalstring);
-
-		//create new internallist of incominglength and copy element by element from incoming mylist
+		//create new internallist of incominglength size and copy element by element from incoming mylist
 		this.myinternallist = new int[incominglength];
 		for(int i = 0; i < incominglength; i++) {
 			this.myinternallist[i] = incominglist.get(i);
 		}
-		//System.out.print("after" + this.myinternalstring);
-
-
 	}
 
 
-	// For our assignment.
-	// -----------------------------------
 	/**
 	 * Returns the element at position index
 	 * 
@@ -68,6 +36,7 @@ public class ImmutableList implements IImmutableList {
 		return (this.myinternallist[index]);
 	}
 
+
 	/**
 	 * Returns the concatenation of the current list and other list.
 	 * 
@@ -76,25 +45,22 @@ public class ImmutableList implements IImmutableList {
 	 */
 	public IImmutableList concat(IImmutableList incominglist) {
 
-
+		// get the lengths of the existing this and the new list coming in.
 		int incominglistsize=incominglist.size();
 		int thislistsize=this.size();
 
-		//System.out.println("myinternallist size inside concat: " + thislistsize); 
-		//System.out.println("size of incominglist in concat: " + incominglistsize); 
 
 		// define array of new combined size
 		int combinedlength = this.size() + incominglist.size();
 		int[] myinternallist = new int[combinedlength]; 
 
-		//System.out.println("size of combined lists in concat: " + combinedlength); 
 
 		// replicate elements from existing list into new array
 		for(int i = 0; i < thislistsize; i++) {
 			myinternallist[i] = this.get(i);
 		}
 
-		// then append new elements from incominglist, start writing at thislistsize
+		// then append new elements from incominglist, start writing at 'thislistsize' in the new list
 		for(int i = 0; i < incominglistsize; i++) {
 			myinternallist[i+thislistsize] = incominglist.get(i);
 		}
@@ -104,7 +70,7 @@ public class ImmutableList implements IImmutableList {
 		return(newlist);
 	}
 
-	
+
 	/**
 	 * Returns the number of elements in the list.
 	 * 
@@ -112,32 +78,14 @@ public class ImmutableList implements IImmutableList {
 	 */
 	public int size() {
 
+		// I had started to play with a trycatch to catch these then gave up.
 		//NullPointerException – when the array is null.
 		//IllegalArgumentException – when the given object array is not an Array.
 		//ArrayIndexOutOfBoundsException – if the given index is not in the range of the size of the array.
 
-		/*
-		try {
-			System.out.println("in size : " + this.myinternallist.length);
-		} catch (NullPointerException e) {
-			System.out.println("caught exception :" + e);
-		} catch (IllegalArgumentException e ) {
-			System.out.println("caught exception :" + e);
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("caught exception :" + e);			
-		}
-		 */
-
-		//System.out.println("in size : " + this.myinternallist.length);
-
-		//if (this.myinternallist.length = null) {
-		//	return (0);
-		//} else { 
-		//}
 		return (this.myinternallist.length);
 	}
-	
-	
+
 
 	/**
 	 * Return a string presentation of the list. The content is enclosed in [ ],
@@ -149,71 +97,14 @@ public class ImmutableList implements IImmutableList {
 	public String toString() {
 
 		String newstring="[";
-		
+
 		for(int i = 0; i < this.myinternallist.length; i++) {
 			newstring = newstring + this.get(i);
 			if (i < this.myinternallist.length-1) {
-				newstring = newstring + ", ";
+				newstring = newstring + ",";
 			}		
 		} 
 		newstring= newstring + "]";
 		return(newstring);
 	}
-
-
-
-	
-	
-	
-	
-	
-
-	/* 
-	// method  I just created to start playing with concatting two strings.	
-	public String concatstring(String mystr) {
-		// This is the string I want to keep adding things to.
-		this.myinternalstring = this.myinternalstring + mystr;
-		System.out.println("in concatstring: " + this.myinternalstring);
-		return (this.myinternalstring);
-	}
-
-	public String printit() {
-		return (this.myinternalstring);
-	} */
-
-	/*
-	 * // Your methods from Trip 
-	 * public void Trip(String tripName) { 
-	 * this.tripName = tripName; 
-	 * locations = new ArrayList<String>(); 
-	 * }
-	 * 
-	 * public void addLocation(String location) {
-	 * System.out.println("Adding location" + location); 
-	 * locations.add(location); }
-	 * 
-	 * // Getters and Setters 
-	 * public String getTripName() { return tripName; }
-	 * public void setTripName(String tripName) { this.tripName = tripName; }
-	 */
-
-
-	// Samples from W3schools for an interface.
-	// ----------------------
-	/* 
-	public void animalSound(String says) {
-		System.out.println("The pig says in ImmutableList: " + says);
-	}
-
-	public void eat(String food) {
-		System.out.println("im hungry, im gonna eat: " + food);
-	}
-
-	public void sleep(int[] howlong) {
-		// just picking the first element of array for fun to make sure I can pass in
-		// array
-	System.out.println("taking a snooze: " + howlong[0]);
-	}
-	 */
-
 }
