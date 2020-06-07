@@ -35,14 +35,7 @@ public class ImmutableList implements IImmutableList {
 		int incominglength = incominglist.size();
         int[] myinternallist = new int[incominglength]; 
         
-        
-        // dont remember what this was for...
-        //Integer[] destArray = new Integer[srcArray.length+1];
-        //for(int i = 0; i < incominglength; i++) {
-        // 	myinternallist[i] = incominglist.get(i);
-        //}
-
-        
+              
 		//for (int i = 0; i < incominglength; i++) {
 		//	System.out.print("===" + incominglist.get(i) + " ");
 		//}
@@ -61,7 +54,6 @@ public class ImmutableList implements IImmutableList {
 			this.myinternallist[i] = incominglist.get(i);
 		}
 		//System.out.print("after" + this.myinternalstring);
-
 		
 
 	}
@@ -93,16 +85,19 @@ public class ImmutableList implements IImmutableList {
 		int incominglistsize=incominglist.size();
 		int thislistsize=this.size();
 		
-		System.out.println("myinternallist size inside concat: " + thislistsize); // + this.size());
-		System.out.println("size of incominglist in concat: " + incominglistsize); // + this.size());
+
+		System.out.println("myinternallist size inside concat: " + thislistsize); 
+		System.out.println("size of incominglist in concat: " + incominglistsize); 
+		System.out.println("this" + this.myinternalstring); 
+
 
 		// define array of new combined size
-		int incominglength = this.size() + incominglist.size();
-        int[] myinternallist = new int[incominglength]; 
+		int combinedlength = this.size() + incominglist.size();
+        int[] myinternallist = new int[combinedlength]; 
         	
         // replicate elements from existing list into new array
 		for(int i = 0; i < thislistsize; i++) {
-			myinternallist[i] = incominglist.get(i);
+			myinternallist[i] = this.get(i);
 		}
 		
 		// then append new elements from incominglist
@@ -110,13 +105,13 @@ public class ImmutableList implements IImmutableList {
 			myinternallist[i+thislistsize] = incominglist.get(i+thislistsize);
 		}
 		
-		System.out.println(incominglist); // + this.size());
-		System.out.println("this" + this.myinternalstring); // + this.size());
-		System.out.println("internal" + myinternalstring); // + this.size());
-		System.out.println("incoming" + this.incominglist); // + this.size());
+		System.out.println(incominglist); 
+		System.out.println("this" + this.myinternalstring); 
+		System.out.println("internal" + myinternalstring); 
+		System.out.println("incoming" + incominglist); 
 
-
-		return(myinternallist);
+		
+		return(?????????);
 	}
 
 	/**
