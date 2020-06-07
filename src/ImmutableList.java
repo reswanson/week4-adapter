@@ -18,7 +18,7 @@ public class ImmutableList implements IImmutableList {
 
 		int incominglength = incominglist.size();
 
-		//create new internallist of incominglength size and copy element by element from incoming mylist
+		//create new internallist of incominglength size and copy element by element from incominglist
 		this.myinternallist = new int[incominglength];
 		for(int i = 0; i < incominglength; i++) {
 			this.myinternallist[i] = incominglist.get(i);
@@ -104,7 +104,7 @@ public class ImmutableList implements IImmutableList {
 				newstring = newstring + ",";
 			}		
 		} 
-		newstring= newstring + "]";
+		newstring = newstring + "]";
 		return(newstring);
 	}
 }
