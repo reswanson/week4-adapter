@@ -9,17 +9,16 @@ public class Main {
 		
 		// From this weeks assignment.
 		
-		IImmutableList list1 = new ImmutableList(new int[]{1,9,3,4,5,6,7});
-		System.out.println(list1);
-
+		IImmutableList list1 = new ImmutableList(new int[]{1,2,3});
 		
-		System.out.println("size of array" + list1.size());
-		System.out.println("value at position 1 : " + list1.get(1));
+		System.out.println(list1);	
+		System.out.println("MAINsize of array" + list1.size());
+		System.out.println("MAINvalue at position 1 : " + list1.get(1));
 
 		
 		IImmutableList list2 = new ImmutableList(list1);
 		
-		IImmutableList list3 = list1.concat(list2);
+		//IImmutableList list3 = list1.concat(list2);
 		
 		//IImmutableList list4 = new ImmutableList(new int[]{4,5,6,7});
 		//IImmutableList list5 = list1.concat(list4.concat(list3));

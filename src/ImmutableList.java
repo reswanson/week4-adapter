@@ -27,12 +27,28 @@ public class ImmutableList implements IImmutableList {
 		// this.myinternallist        int[]a = {1,2,3,4};
 		// mylist  being passed in    int[]b = {4,16,1,2,3,22};
 		//how to recreate myinternallist with a new size each time.????
+		
+		int newsize = mylist.size() + this.size();
+        int[] myinternallist = new int[newsize]; 
+        
+        Integer[] destArray = new Integer[srcArray.length+1];
+        for(int i = 0; i < srcArray.length; i++) {
+        	destArray[i] = srcArray[i];
+        }
 
-		System.out.println("size inside Immutablelist: " + this.myinternalstring.length()); // + this.size());
-		System.out.println("size of mylist in imutablelist: " + mylist.size()); // + this.size());
+        
+		for (int i = 0; i < mylist.size(); i++) {
+			myinternallist[i] = mylist[i];
+			System.out.print("===" + this.myinternallist[i] + " ");
+		}
 
 
-		for (int i = 0; i < this.myinternalstring.length(); i++) {
+		System.out.println("size inside Immutablelist: " + this.myinternallist.length); // + this.size());
+		//System.out.println("size of mylist in imutablelist: " + mylist.size()); // + this.size());
+
+		//System.out.println(mylist);	
+		
+		for (int i = 0; i < this.size(); i++) {
 			System.out.print("===" + this.myinternallist[i] + " ");
 		}
 
@@ -42,7 +58,7 @@ public class ImmutableList implements IImmutableList {
 		this.myinternallist = new int[newlength];
 		System.arraycopy(mylist, 0, this.myinternallist, 0, mylist.size());
 
-		this.size();
+
 	}
 
 
@@ -86,6 +102,7 @@ public class ImmutableList implements IImmutableList {
 
 		try {
 			System.out.println("in size : " + this.myinternallist.length);
+			return (this.myinternallist.length);
 		} catch (NullPointerException e) {
 			System.out.println("caught exception :" + e);
 		} catch (IllegalArgumentException e ) {
@@ -94,12 +111,11 @@ public class ImmutableList implements IImmutableList {
 			System.out.println("caught exception :" + e);			
 		}
 
-		System.out.println("in size : " + this.myinternallist.length);
+		//System.out.println("in size : " + this.myinternallist.length);
 
 		//if (this.myinternallist.length = null) {
 		//	return (0);
 		//} else { 
-		return (this.myinternallist.length);
 		//}
 	}
 
