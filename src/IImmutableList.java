@@ -6,17 +6,13 @@ interface IImmutableList {
 	//public void animalSound(String says); // interface method (does not have a body)
 	//public void sleep(int[] howlong); // interface method (does not have a body)
 	//public void eat(String food); // interface method (does not have a body)
-
-
 	//public void Trip(String tripName);
 	//public void addLocation(String location);
 	//public String getTripName();
 	//public void setTripName(String tripName);
-
-
-	// Test method to try...
-	public String concatstring(String mystr);
-	public String printit();
+	//Test method to try...
+	//public String concatstring(String mystr);
+	//public String printit();
 
 
 	/**

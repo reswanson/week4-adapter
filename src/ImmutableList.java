@@ -101,16 +101,22 @@ public class ImmutableList implements IImmutableList {
         int[] myinternallist = new int[incominglength]; 
         	
         // replicate elements from existing list into new array
-		for(int i = 0; i < incominglength; i++) {
-			this.myinternallist[i] = incominglist.get(i);
+		for(int i = 0; i < thislistsize; i++) {
+			myinternallist[i] = incominglist.get(i);
 		}
 		
 		// then append new elements from incominglist
-		for(int i = 0; i < incominglength; i++) {
-			this.myinternallist[i+thislistsize] = incominglist.get(i+thislistsize);
+		for(int i = 0; i < incominglistsize; i++) {
+			myinternallist[i+thislistsize] = incominglist.get(i+thislistsize);
 		}
+		
+		System.out.println(incominglist); // + this.size());
+		System.out.println("this" + this.myinternalstring); // + this.size());
+		System.out.println("internal" + myinternalstring); // + this.size());
+		System.out.println("incoming" + this.incominglist); // + this.size());
 
-		return(this.myinternallist);
+
+		return(myinternallist);
 	}
 
 	/**
@@ -153,24 +159,18 @@ public class ImmutableList implements IImmutableList {
 	 */
 	@Override
 	public String toString() {
-		// for (ArrayList<Int> t : this.stuff ) {
-		// // Build string to return
-		// return()
-		// System.out.println(t.getTripName() + " - " + t.getLocations().size());
-		//
-		// }
 		
+		// TODO - have to fix this as it puts a comma after the last entry...........
 		System.out.print("[");
 		for(int i = 0; i < this.myinternallist.length; i++) {
 			System.out.print(this.get(i) + ", ");
 		} 
 		System.out.print("]");
 
-
 		return (this.myinternalstring);
 	}
 
-
+	/* 
 	// method  I just created to start playing with concatting two strings.	
 	public String concatstring(String mystr) {
 		// This is the string I want to keep adding things to.
@@ -181,7 +181,7 @@ public class ImmutableList implements IImmutableList {
 
 	public String printit() {
 		return (this.myinternalstring);
-	}
+	} */
 
 	/*
 	 * // Your methods from Trip 
