@@ -10,11 +10,12 @@ public class ImmutableList implements IImmutableList {
 	// ---------These are the ones I was playing with -------------
 	private String tripName;
 	String locations;
-	ArrayList<String> mylist;
+	//ArrayList<String> mylist;
 	String myinternalstring = "";
 	// ------------------------------------------------------------
 
 
+	
 	public ImmutableList(int[] incomingarraylist) {
 		this.myinternallist=incomingarraylist;
 	}
@@ -28,18 +29,20 @@ public class ImmutableList implements IImmutableList {
 		// mylist  being passed in    int[]b = {4,16,1,2,3,22};
 		//how to recreate myinternallist with a new size each time.????
 		
-		int newsize = mylist.size() + this.size();
+		System.out.println("mylist size inside Immutablelist: " + mylist.size()); // + this.size());
+		System.out.println("this size inside Immutablelist: " + this.size()); // + this.size());
+
+		int newsize = this.size() + mylist.size();
         int[] myinternallist = new int[newsize]; 
         
-        Integer[] destArray = new Integer[srcArray.length+1];
-        for(int i = 0; i < srcArray.length; i++) {
-        	destArray[i] = srcArray[i];
-        }
+        //Integer[] destArray = new Integer[srcArray.length+1];
+        //for(int i = 0; i < srcArray.length; i++) {
+        // 	destArray[i] = srcArray[i];
+        //}
 
         
 		for (int i = 0; i < mylist.size(); i++) {
-			myinternallist[i] = mylist[i];
-			System.out.print("===" + this.myinternallist[i] + " ");
+			System.out.print("===" + mylist.get(i) + " ");
 		}
 
 
@@ -57,7 +60,6 @@ public class ImmutableList implements IImmutableList {
 
 		this.myinternallist = new int[newlength];
 		System.arraycopy(mylist, 0, this.myinternallist, 0, mylist.size());
-
 
 	}
 
@@ -102,7 +104,6 @@ public class ImmutableList implements IImmutableList {
 
 		try {
 			System.out.println("in size : " + this.myinternallist.length);
-			return (this.myinternallist.length);
 		} catch (NullPointerException e) {
 			System.out.println("caught exception :" + e);
 		} catch (IllegalArgumentException e ) {
@@ -117,6 +118,7 @@ public class ImmutableList implements IImmutableList {
 		//	return (0);
 		//} else { 
 		//}
+		return (this.myinternallist.length);
 	}
 
 	/**

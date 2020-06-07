@@ -12,7 +12,8 @@ public class Main {
 		IImmutableList list1 = new ImmutableList(new int[]{1,2,3});
 		
 		System.out.println(list1);	
-		System.out.println("MAINsize of array" + list1.size());
+		
+		System.out.println("MAINsize of array : " + list1.size());
 		System.out.println("MAINvalue at position 1 : " + list1.get(1));
 
 		
